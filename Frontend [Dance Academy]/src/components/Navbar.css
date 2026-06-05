@@ -1,0 +1,145 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  height: 70px;
+  background: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.navbar-logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #7b2cff;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444444;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #7b2cff;
+  transition: width 0.25s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: #7b2cff;
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+  width: 100%;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-auth {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-greeting {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.btn-outline {
+  font-size: 14px;
+  font-weight: 600;
+  color: #7b2cff;
+  border: 2px solid #7b2cff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: #7b2cff;
+  color: #ffffff;
+}
+
+.btn-filled {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #7b2cff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.btn-filled:hover {
+  background: #6320d4;
+}
+
+.btn-logout {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #111111;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.btn-logout:hover {
+  background: #7b2cff;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 16px 24px;
+    gap: 12px;
+  }
+  .navbar-links {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}

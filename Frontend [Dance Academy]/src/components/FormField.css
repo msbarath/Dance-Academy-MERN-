@@ -1,0 +1,22 @@
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.form-field__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.form-field__error {
+  font-size: 12px;
+  color: #cc0000;
+  font-weight: 500;
+}
+
+[data-theme='dark'] .form-field__error { color: #f87171; }
