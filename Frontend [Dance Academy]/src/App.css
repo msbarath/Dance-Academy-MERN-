@@ -1,0 +1,59 @@
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --border: #eeeeee;
+  --text: #111111;
+  --text-muted: #555555;
+  --text-faint: #888888;
+  --accent: #7b2cff;
+  --accent-hover: #6320d4;
+  --accent-bg: #f4eeff;
+  --sidebar-w: 240px;
+  --sidebar-w-collapsed: 60px;
+  --shadow: 2px 0 12px rgba(0,0,0,0.05);
+}
+
+[data-theme='dark'] {
+  --bg: #0f0f13;
+  --surface: #1a1a24;
+  --border: #2a2a38;
+  --text: #f0f0f0;
+  --text-muted: #aaaaaa;
+  --text-faint: #666666;
+  --accent: #9b59ff;
+  --accent-hover: #7b2cff;
+  --accent-bg: #1e1530;
+  --shadow: 2px 0 12px rgba(0,0,0,0.3);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s, color 0.25s;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-content {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  min-height: 100vh;
+  background: var(--bg);
+  transition: margin-left 0.25s;
+}
+
+.app-content.collapsed {
+  margin-left: var(--sidebar-w-collapsed);
+}
+
+@media (max-width: 640px) {
+  .app-content {
+    margin-left: 0;
+  }
+  .app-content.collapsed {
+    margin-left: 0;
+  }
+}

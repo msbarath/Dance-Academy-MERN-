@@ -1,0 +1,364 @@
+/* ── Layout ───────────────────────────────────────────── */
+.panel-page {
+    min-height: 100vh;
+    background: var(--bg);
+    padding: 32px;
+    max-width: 1200px;
+}
+
+.panel-header {
+    margin-bottom: 28px;
+}
+
+.panel-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.panel-header p {
+    font-size: 14px;
+    color: var(--text-faint);
+}
+
+/* ── Stats row ───────────────────────────────────────── */
+.panel-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+/* ── Form box ────────────────────────────────────────── */
+.panel-form-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 28px;
+}
+
+.panel-form-box h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 18px;
+}
+
+.panel-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.panel-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.panel-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 180px;
+}
+
+.panel-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.panel-form-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+/* ── Buttons ─────────────────────────────────────────── */
+.panel-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.18s;
+    white-space: nowrap;
+}
+
+.panel-btn:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+.panel-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.panel-btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+.panel-btn-ghost:hover {
+    background: var(--accent-bg);
+    color: var(--accent);
+}
+
+/* ── Inputs ──────────────────────────────────────────── */
+input, select, textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--accent);
+}
+
+input.input-error, select.input-error {
+    border-color: #cc0000;
+}
+
+.field-error {
+    font-size: 12px;
+    color: #cc0000;
+    font-weight: 500;
+}
+
+[data-theme='dark'] .field-error {
+    color: #f87171;
+}
+
+/* ── Error / empty messages ──────────────────────────── */
+.panel-error {
+    background: #fef0f0;
+    color: #c0392b;
+    border: 1px solid #ffcccc;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 14px;
+}
+
+[data-theme='dark'] .panel-error {
+    background: #2e0d0d;
+    color: #f87171;
+    border-color: #5a1a1a;
+}
+
+.panel-empty {
+    color: var(--text-faint);
+    font-size: 13px;
+    padding: 16px 0;
+}
+
+/* ── Table box ───────────────────────────────────────── */
+.panel-table-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    overflow-x: auto;
+}
+
+.panel-table-box h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 18px;
+}
+
+.panel-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.panel-table-header h2 {
+    margin-bottom: 0;
+}
+
+.panel-count {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-faint);
+    margin-left: 8px;
+}
+
+/* ── Filter row ──────────────────────────────────────── */
+.panel-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.panel-filter label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.panel-filter input,
+.panel-filter select {
+    width: auto;
+    min-width: 140px;
+    padding: 7px 10px;
+}
+
+.panel-clear-btn {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: none;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s, color 0.15s;
+}
+
+.panel-clear-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* ── Data table ──────────────────────────────────────── */
+.panel-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.panel-table th {
+    text-align: left;
+    padding: 9px 12px;
+    background: var(--bg);
+    color: var(--text-muted);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.panel-table td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    vertical-align: middle;
+}
+
+.panel-table tr:last-child td {
+    border-bottom: none;
+}
+
+.panel-table tr:hover td {
+    background: var(--bg);
+}
+
+/* ── Row action buttons ──────────────────────────────── */
+.panel-actions {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.panel-edit,
+.panel-delete {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.15s;
+}
+
+.panel-edit {
+    background: var(--accent-bg);
+    color: var(--accent);
+}
+
+.panel-edit:hover {
+    opacity: 0.8;
+}
+
+.panel-delete {
+    background: #fef0f0;
+    color: #c0392b;
+}
+
+.panel-delete:hover {
+    opacity: 0.8;
+}
+
+[data-theme='dark'] .panel-delete {
+    background: #2e0d0d;
+    color: #f87171;
+}
+
+/* ── Status badges ───────────────────────────────────── */
+.status-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-badge.present,
+.status-badge.paid {
+    background: #e8f9f0;
+    color: #1a7a4a;
+}
+
+.status-badge.absent,
+.status-badge.pending {
+    background: #fef0f0;
+    color: #c0392b;
+}
+
+[data-theme='dark'] .status-badge.present,
+[data-theme='dark'] .status-badge.paid {
+    background: #0d2e1e;
+    color: #4ade80;
+}
+
+[data-theme='dark'] .status-badge.absent,
+[data-theme='dark'] .status-badge.pending {
+    background: #2e0d0d;
+    color: #f87171;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+    .panel-page   { padding: 20px 14px; }
+    .panel-form-row { flex-direction: column; }
+    .panel-table-header { flex-direction: column; align-items: flex-start; }
+}
