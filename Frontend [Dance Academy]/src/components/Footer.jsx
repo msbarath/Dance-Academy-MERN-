@@ -23,7 +23,6 @@ function Footer() {
         </div>
         <div className="footer-links">
           <h4>Join Us</h4>
-          <Link to="/signup">Sign Up</Link>
           <Link to="/login">Login</Link>
         </div>
       </div>

@@ -35,7 +35,6 @@ function Navbar() {
         ) : (
           <div className="navbar-auth">
             <Link to="/login" className="btn-outline">Login</Link>
-            <Link to="/signup" className="btn-filled">Sign Up</Link>
           </div>
         )}
       </div>

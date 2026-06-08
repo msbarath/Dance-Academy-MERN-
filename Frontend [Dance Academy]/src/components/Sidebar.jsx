@@ -20,7 +20,6 @@ const AUTH_NAV = [
 
 const GUEST_NAV = [
     { path: "/login",           label: "Login" },
-    { path: "/signup",          label: "Sign Up" },
     { path: "/forgot-password", label: "Forgot Password" },
 ];
 

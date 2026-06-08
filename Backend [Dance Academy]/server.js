@@ -151,24 +151,42 @@ app.use((err, req, res, _next) => {
 });
 
 async function seedAdmin() {
-    if (!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD) return;
     const bcrypt = require("bcryptjs");
     const User   = require("./Models/UserModel");
-    try {
-        const exists = await User.findOne({ email: process.env.ADMIN_EMAIL });
-        if (!exists) {
-            await User.create({
-                firstname: "Admin",
-                lastname:  "User",
-                email:     process.env.ADMIN_EMAIL,
-                phone:     "9000000000",
-                password:  await bcrypt.hash(process.env.ADMIN_PASSWORD, 12),
-                role:      "admin",
-            });
-            console.log("Admin user seeded successfully");
+
+    const admins = [
+        { email: process.env.ADMIN_EMAIL,  password: process.env.ADMIN_PASSWORD,  firstname: "Admin",  lastname: "User",  phone: "9000000000" },
+        { email: process.env.ADMIN2_EMAIL, password: process.env.ADMIN2_PASSWORD, firstname: "Surya",  lastname: "Sekar", phone: "9000000001" },
+    ];
+
+    for (const admin of admins) {
+        if (!admin.email || !admin.password) continue;
+        try {
+            const existing = await User.findOne({ email: admin.email }).select("+password");
+            if (!existing) {
+                await User.create({
+                    firstname: admin.firstname,
+                    lastname:  admin.lastname,
+                    email:     admin.email,
+                    phone:     admin.phone,
+                    password:  await bcrypt.hash(admin.password, 12),
+                    role:      "admin",
+                });
+                console.log(`[seedAdmin] Admin created: ${admin.email}`);
+            } else {
+                const updates = { role: "admin" };
+                // Always re-sync the password for seeded admins so the configured credential is always valid
+                updates.password = await bcrypt.hash(admin.password, 12);
+                await User.updateOne({ email: admin.email }, updates);
+                if (existing.role !== "admin") {
+                    console.log(`[seedAdmin] Existing user promoted to admin: ${admin.email}`);
+                } else {
+                    console.log(`[seedAdmin] Admin already exists (password synced): ${admin.email}`);
+                }
+            }
+        } catch (err) {
+            console.error(`[seedAdmin] Error for ${admin.email}:`, err.message);
         }
-    } catch (err) {
-        console.error("seedAdmin failed:", err.message);
     }
 }
 
